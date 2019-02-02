@@ -9,6 +9,9 @@ import javax.inject.Inject
 class MainActivityModel @Inject constructor(private val apiClient: ApiClient) {
 
     fun loadCharacters(characterType: CharacterType): Observable<List<Character>> {
-        return apiClient.getCharacters(characterType.type).map { it.characterList }
+        return apiClient.getCharacters(characterType.type)
+            .map {
+                it.characterList
+            }
     }
 }
